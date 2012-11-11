@@ -59,9 +59,14 @@
     <Compile Include="SolidBrush.cs" />
     <Compile Include="Stubs.cs" />
     <Compile Include="Bitmap.Android.cs" />
-    <Compile Include="Imaging\Test.cs" />
     <Compile Include="Drawing2D\HatchBrush.cs" />
     <Compile Include="Drawing2D\HatchStyle.cs" />
+    <Compile Include="Imaging\ImageFormat.cs" />
+    <Compile Include="Imaging\Metafile.cs" />
+    <Compile Include="Imaging\MetafileFrameUnit.cs" />
+    <Compile Include="StringAlignment.cs" />
+    <Compile Include="StringFormat.cs" />
+    <Compile Include="Drawing2D\Matrix.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

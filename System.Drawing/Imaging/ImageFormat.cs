@@ -2,9 +2,9 @@ using System;
 
 namespace System.Drawing.Imaging
 {
-	public class Test
+	public class ImageFormat
 	{
-		public Test ()
+		public ImageFormat ()
 		{
 		}
 	}
