@@ -1,31 +1,31 @@
 namespace System.Drawing
 {
     using System;
-    using Android.Graphics;
+	using droid = Android.Graphics;
 
     public class Graphics : IDisposable
     {
         private readonly bool ownCanvas;
-        private readonly Paint paint;
-        private readonly Canvas canvas;
+        private readonly Android.Graphics.Paint paint;
+		private readonly Android.Graphics.Canvas canvas;
 
-        public PaintFlags Flags { get; set; }
+		public Android.Graphics.PaintFlags Flags { get; set; }
 
         private Graphics()
         {
-            this.paint = new Paint();
-            this.Flags = PaintFlags.AntiAlias;
+			this.paint = new droid.Paint();
+			this.Flags = droid.PaintFlags.AntiAlias;
             this.ownCanvas = false;
         }
 
         private Graphics(Bitmap bitmap) 
             : this()
         {
-            this.canvas = new Canvas(bitmap);
+			this.canvas = new droid.Canvas(bitmap.AndroidBitmap);
             this.ownCanvas = true;
         }
 
-        public Graphics(Canvas canvas)
+		public Graphics(Android.Graphics.Canvas canvas)
             : this()
         {
             this.canvas = canvas;
@@ -53,17 +53,17 @@ namespace System.Drawing
         public void DrawImage(Bitmap bitmap, Rectangle target, Rectangle source, GraphicsUnit gu)
         {
             this.paint.Flags = 0;
-            using (Rect sa = source.ToRect())
-            using (Rect ta = target.ToRect())
+			using (droid.Rect sa = source.ToRect())
+				using (droid.Rect ta = target.ToRect())
             {
-                this.canvas.DrawBitmap(bitmap, sa, ta, this.paint);
+                this.canvas.DrawBitmap(bitmap.AndroidBitmap, sa, ta, this.paint);
             }
         }
 
         public void DrawImage(Bitmap bitmap, int x, int y)
         {
             this.paint.Flags = 0;
-            this.canvas.DrawBitmap(bitmap, x, y, this.paint);
+            this.canvas.DrawBitmap(bitmap.AndroidBitmap, x, y, this.paint);
         }
 
         public void DrawImage(Bitmap bitmap, int x, int y, Rectangle source, GraphicsUnit gu)
@@ -75,7 +75,7 @@ namespace System.Drawing
         {
             this.paint.Color = pen.Color.ToAColor();
             this.paint.Flags = this.Flags;
-            this.paint.SetStyle(Paint.Style.Stroke);
+			this.paint.SetStyle(droid.Paint.Style.Stroke);
             this.paint.StrokeWidth = pen.Width;
             this.canvas.DrawLine(x1, y1, x2, y2, paint);
         }
@@ -84,7 +84,7 @@ namespace System.Drawing
         {
             this.paint.Color = pen.Color.ToAColor();
             this.paint.Flags = this.Flags;
-            this.paint.SetStyle(Paint.Style.Stroke);
+			this.paint.SetStyle(droid.Paint.Style.Stroke);
             this.paint.StrokeWidth = pen.Width;
             this.canvas.DrawRect(x1, y1, x1 + w, y1 + h, this.paint);
         }
@@ -93,9 +93,9 @@ namespace System.Drawing
         {
             this.paint.Color = pen.Color.ToAColor();
             this.paint.Flags = this.Flags;
-            this.paint.SetStyle(Paint.Style.Stroke);
+			this.paint.SetStyle(droid.Paint.Style.Stroke);
             this.paint.StrokeWidth = pen.Width;
-            using (RectF r = new RectangleF(x, y, w, h).ToRectF())
+            using (droid.RectF r = new RectangleF(x, y, w, h).ToRectF())
             {
                 this.canvas.DrawOval(r, this.paint);
             }
@@ -105,7 +105,7 @@ namespace System.Drawing
         {
             this.paint.Color = brush.Color.ToAColor();
             this.paint.Flags = this.Flags;
-            this.paint.SetStyle(Paint.Style.Fill);
+			this.paint.SetStyle(droid.Paint.Style.Fill);
             this.canvas.DrawRect(x1, y1, x1 + w, y1 + h, this.paint);
         }
 
@@ -133,8 +133,8 @@ namespace System.Drawing
         {
             this.paint.Color = brush.Color.ToAColor();
             this.paint.Flags = this.Flags;
-            this.paint.SetStyle(Paint.Style.Fill);
-            using (RectF r = new RectangleF(x, y, w, h).ToRectF())
+			this.paint.SetStyle(droid.Paint.Style.Fill);
+            using (droid.RectF r = new RectangleF(x, y, w, h).ToRectF())
             {
                 this.canvas.DrawOval(r, this.paint);
             }
@@ -143,11 +143,11 @@ namespace System.Drawing
         public void DrawString(string text, Font font, Brush brush, float x, float y)
         {
             this.paint.Color = brush.Color.ToAColor();
-            this.paint.Flags = PaintFlags.AntiAlias;
+            this.paint.Flags = droid.PaintFlags.AntiAlias;
 
             this.paint.TextSize = font.Size;
             this.paint.SetTypeface(font.FontFamily.Typeface);
-            this.paint.SetStyle(Paint.Style.Fill);
+			this.paint.SetStyle(droid.Paint.Style.Fill);
 
             using (var fm = this.paint.GetFontMetrics())
             {
@@ -167,13 +167,13 @@ namespace System.Drawing
 
         public Size MeasureString(string text, Font font)
         {
-            using (var p = new Paint(this.paint))
-            using (var bounds = new Rect())
+			using (var p = new droid.Paint(this.paint))
+				using (var bounds = new droid.Rect())
             using (var fm = p.GetFontMetrics())
             {
                 p.TextSize = font.Size;
                 p.SetTypeface(font.FontFamily.Typeface);
-                p.SetStyle(Paint.Style.Stroke);
+				p.SetStyle(droid.Paint.Style.Stroke);
 
                 p.GetTextBounds(text, 0, text.Length, bounds);
                 var width = bounds.Width();
