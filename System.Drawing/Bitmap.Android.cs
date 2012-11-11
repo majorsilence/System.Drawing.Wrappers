@@ -3,7 +3,7 @@ using Android.Graphics;
 
 namespace System.Drawing
 {
-	public class Bitmap : IDisposable
+	public class Bitmap : Image
 	{
 		
 		/// <summary>
@@ -82,7 +82,7 @@ namespace System.Drawing
 		/// <value>
 		/// The width.
 		/// </value>
-		public int Width
+		public override int Width
 		{
 			get 
 			{
@@ -90,7 +90,7 @@ namespace System.Drawing
 			}
 		}
 
-		public int Height
+		public override int Height
 		{
 			get
 			{

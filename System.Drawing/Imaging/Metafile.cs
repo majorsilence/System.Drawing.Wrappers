@@ -2,7 +2,7 @@ using System;
 
 namespace System.Drawing.Imaging
 {
-	public class Metafile
+	public class Metafile : Image
 	{
 		/// <summary>
 		/// Initializes a new instance of the Metafile class from the 
@@ -31,6 +31,22 @@ namespace System.Drawing.Imaging
 		public void Save(System.IO.Stream stream, ImageFormat imgFormat)
 		{
 			throw new NotImplementedException();
+		}
+
+		public override int Width
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public override int Height
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
 		}
 
 	}

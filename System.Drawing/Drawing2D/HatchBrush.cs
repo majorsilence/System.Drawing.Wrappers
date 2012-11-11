@@ -2,7 +2,7 @@ using System;
 
 namespace System.Drawing.Drawing2D
 {
-	public class HatchBrush : IDisposable
+	public class HatchBrush : Brush
 	{
 		public HatchBrush (HatchStyle style)
 		{
