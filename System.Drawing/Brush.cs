@@ -14,6 +14,10 @@
             Color = c;
         }
 
+		public Brush()
+		{
+		}
+
         #region IDisposable Members
 
         public void Dispose()
