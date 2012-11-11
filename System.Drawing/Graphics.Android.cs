@@ -80,6 +80,15 @@ namespace System.Drawing
             this.canvas.DrawLine(x1, y1, x2, y2, paint);
         }
 
+		public void DrawLine(Pen pen, Point p1, Point p2)
+		{
+			this.paint.Color = pen.Color.ToAColor();
+			this.paint.Flags = this.Flags;
+			this.paint.SetStyle(droid.Paint.Style.Stroke);
+			this.paint.StrokeWidth = pen.Width;
+			this.canvas.DrawLine(p1.X, p1.Y, p2.X, p2.Y, paint);
+		}
+
         public void DrawRectangle(Pen pen, float x1, float y1, float w, float h)
         {
             this.paint.Color = pen.Color.ToAColor();
