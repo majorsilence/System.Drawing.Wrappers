@@ -70,6 +70,7 @@
     <Compile Include="CharacterRange.cs" />
     <Compile Include="Brushes.cs" />
     <Compile Include="Pens.cs" />
+    <Compile Include="StringFormatFlags.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

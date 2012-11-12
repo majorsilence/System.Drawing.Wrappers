@@ -31,6 +31,14 @@ namespace System.Drawing
             this.canvas = canvas;
         }
 
+		public static Graphics FromImage(Image image)
+		{
+			Bitmap bm = (Bitmap)image;
+
+			Graphics g = new Graphics(bm);
+			return g;
+		}
+
         #region IDisposable Members
 
         public void Dispose()
@@ -88,6 +96,25 @@ namespace System.Drawing
 			this.paint.StrokeWidth = pen.Width;
 			this.canvas.DrawLine(p1.X, p1.Y, p2.X, p2.Y, paint);
 		}
+
+		public void DrawLines(Pen pen, Point []p)
+		{
+			// Is this how DrawLines works?
+			for (int i = 0; i< p.Length-1; i++)
+			{
+
+				if (i == 0)
+				{
+					DrawLine(pen, p[i], p[i]);
+				}
+				else
+				{
+					DrawLine(pen, p[i-1], p[i]);
+				}
+			}
+	
+		}
+
 
         public void DrawRectangle(Pen pen, float x1, float y1, float w, float h)
         {
@@ -191,6 +218,26 @@ namespace System.Drawing
                 return new SizeF(width, height).ToSize();
             }
         }
+
+		//TODO: review this function
+		public Size MeasureString(String text, Font font, SizeF size, StringFormat format)
+		{
+
+			using (var p = new droid.Paint(this.paint))
+				using (var bounds = new droid.Rect())
+					using (var fm = p.GetFontMetrics())
+			{
+				p.TextSize = size.Height;
+				p.SetTypeface(font.FontFamily.Typeface);
+				p.SetStyle(droid.Paint.Style.Stroke);
+				
+				p.GetTextBounds(text, 0, text.Length, bounds);
+				var width = bounds.Width();
+				var height = -fm.Top + fm.Bottom;
+				
+				return new SizeF(width, height).ToSize();
+			}
+		}
 
         public void RotateTransform(float angle)
         {

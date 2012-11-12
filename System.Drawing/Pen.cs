@@ -9,6 +9,7 @@
     {
         public Color Color { get; set; }
         public float Width { get; set; }
+		public Brush Brush{get; set;}
 
         public Pen(Color c)
         {
@@ -21,6 +22,19 @@
             Color = c;
             Width = width;
         }
+
+		public Pen(Brush b)
+		{
+			Color = b.Color;
+			this.Width = 1;
+		}
+
+		public Pen(Brush b, float width)
+		{
+			this.Brush = b;
+			Color = b.Color;
+			this.Width = width;
+		}
 
         #region IDisposable Members
 
