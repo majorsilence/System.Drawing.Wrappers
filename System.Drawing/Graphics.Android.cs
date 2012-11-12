@@ -201,6 +201,26 @@ namespace System.Drawing
             this.DrawString(text, font, brush, rect.Location);
         }
 
+
+		public void DrawString(string text, Font font, Brush brush, RectangleF rect, StringFormat format)
+		{
+			// TODO:  use the StringFormat parameter
+
+			this.paint.Color = brush.Color.ToAColor();
+			this.paint.Flags = droid.PaintFlags.AntiAlias;
+
+			this.paint.TextSize = font.Size;
+			this.paint.SetTypeface(font.FontFamily.Typeface);
+			this.paint.SetStyle(droid.Paint.Style.Fill);
+			
+			using (var fm = this.paint.GetFontMetrics())
+			{
+				this.canvas.DrawText(text, rect.Location.X, rect.Location.Y - (fm.Top + fm.Bottom), this.paint);
+			}
+
+		}
+
+
         public Size MeasureString(string text, Font font)
         {
 			using (var p = new droid.Paint(this.paint))

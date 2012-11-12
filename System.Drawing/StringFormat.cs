@@ -20,7 +20,9 @@ namespace System.Drawing
 			throw new NotImplementedException();
 		}
 
-		public StringFormatFlags FormatFlags {get; set;}
+		public StringFormatFlags FormatFlags {get; set; }
+
+		public StringAlignment Alignment { get; set; }
 
 	}
 }
