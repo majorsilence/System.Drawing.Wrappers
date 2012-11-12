@@ -258,5 +258,18 @@ namespace System.Drawing
         {
             this.canvas.DrawARGB(fill.A, fill.R, fill.G, fill.B);
         }
+
+		public Drawing2D.SmoothingMode SmoothingMode {get; set;}
+
+		public Drawing2D.InterpolationMode InterpolationMode {get; set;}
+
+		public Drawing2D.PixelOffsetMode PixelOffsetMode {get; set;}
+
+		public Drawing2D.CompositingQuality CompositingQuality {get; set;}
+
+		public void ReleaseHdc(IntPtr hdc)
+		{
+		}
+
     }
 }

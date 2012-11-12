@@ -76,6 +76,12 @@
     <Compile Include="Imaging\EncoderParameters.cs" />
     <Compile Include="Imaging\EncoderParameter.cs" />
     <Compile Include="Imaging\Encoder.cs" />
+    <Compile Include="Drawing2D\LinearGradientBrush.cs" />
+    <Compile Include="Drawing2D\LinearGradientMode.cs" />
+    <Compile Include="Drawing2D\SmoothingMode.cs" />
+    <Compile Include="Drawing2D\InterpolationMode.cs" />
+    <Compile Include="Drawing2D\PixelOffsetMode.cs" />
+    <Compile Include="Drawing2D\CompositingQuality.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
