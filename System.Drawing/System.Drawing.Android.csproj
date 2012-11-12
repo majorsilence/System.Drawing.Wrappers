@@ -71,6 +71,11 @@
     <Compile Include="Brushes.cs" />
     <Compile Include="Pens.cs" />
     <Compile Include="StringFormatFlags.cs" />
+    <Compile Include="Imaging\ImageCodecInfo.cs" />
+    <Compile Include="Imaging\ImageCodecFlags.cs" />
+    <Compile Include="Imaging\EncoderParameters.cs" />
+    <Compile Include="Imaging\EncoderParameter.cs" />
+    <Compile Include="Imaging\Encoder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,6 +5,12 @@ namespace System.Drawing
 	public struct CharacterRange
 	{
 
+		public CharacterRange(int first, int length)
+		{
+			_first = first;
+			_length = length;
+		}
+
 		private int _first;
 		public int First
 		{

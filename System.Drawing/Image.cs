@@ -21,6 +21,17 @@
         {
         }
 
+
+		public void Save(System.IO.Stream stream, Imaging.ImageCodecInfo info, Imaging.EncoderParameters e)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Save(string filename)
+		{
+			throw new NotImplementedException();
+		}
+
         #endregion
     }
 }
