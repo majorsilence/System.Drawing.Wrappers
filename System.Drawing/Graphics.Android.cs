@@ -137,6 +137,50 @@ namespace System.Drawing
             }
         }
 
+		public void DrawCurve(Pen pen, Point[] points, Single tension)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DrawCurve(Pen pen, PointF[] point, Single tension)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DrawPolygon(Pen pen, PointF[] points)
+		{
+			this.paint.Color = pen.Color.ToAColor();
+			this.paint.Flags = this.Flags;
+			this.paint.SetStyle(droid.Paint.Style.Stroke);
+			this.paint.StrokeWidth = pen.Width;
+			
+			// TODO: test that this works
+			droid.Path path = new droid.Path();
+			foreach (PointF p in points)
+			{
+				path.LineTo(p.X, p.Y);
+			}
+			
+			this.canvas.DrawPath(path, this.paint);
+		}
+
+		public void DrawPolygon(Pen pen, Point[] points)
+		{
+			this.paint.Color = pen.Color.ToAColor();;
+			this.paint.Flags = this.Flags;
+			this.paint.SetStyle(droid.Paint.Style.Stroke);
+			this.paint.StrokeWidth = pen.Width;
+			
+			// TODO: test that this works
+			droid.Path path = new droid.Path();
+			foreach (Point p in points)
+			{
+				path.LineTo(p.X, p.Y);
+			}
+			
+			this.canvas.DrawPath(path, this.paint);
+		}
+
         public void FillRectangle(Brush brush, float x1, float y1, float w, float h)
         {
             this.paint.Color = brush.Color.ToAColor();
@@ -325,6 +369,11 @@ namespace System.Drawing
 		}
 
 		public void AddMetafileComment(byte[] data)
+		{
+			throw new NotImplementedException();
+		}
+
+		public System.IntPtr GetHdc()
 		{
 			throw new NotImplementedException();
 		}

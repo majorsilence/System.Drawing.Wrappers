@@ -11,6 +11,7 @@
         public FontFamily FontFamily { get; set; }
         public int Size { get; set; }
         public FontStyle Style { get; set; }
+		public string Name {get; set;}
 
         public Font(FontFamily family, int size, FontStyle style)
         {
@@ -25,6 +26,18 @@
             FontFamily = family;
             Style = FontStyle.Normal;
         }
+
+		public Font(string familyName, float emSize)
+		{
+			this.Size = (int)emSize;
+			this.Style = FontStyle.Normal;
+			this.FontFamily  = Drawing.FontFamily.GenericSansSerif;
+			this.Name = familyName;
+
+			
+			throw new NotImplementedException();
+
+		}
 
         #region IDisposable Members
 
