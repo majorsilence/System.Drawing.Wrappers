@@ -125,6 +125,16 @@ namespace System.Drawing
             this.canvas.DrawRect(x1, y1, x1 + w, y1 + h, this.paint);
         }
 
+		public void DrawRectangle(Pen pen, Rectangle rect)
+		{
+			this.paint.Color = pen.Color.ToAColor();
+			this.paint.Flags = this.Flags;
+			this.paint.SetStyle(droid.Paint.Style.Stroke);
+			this.paint.StrokeWidth = pen.Width;
+			this.canvas.DrawRect(rect.X, rect.Y, rect.X + 1, rect.Y + 1, this.paint);
+		}
+
+
         public void DrawEllipse(Pen pen, float x, float y, float w, float h)
         {
             this.paint.Color = pen.Color.ToAColor();
@@ -136,6 +146,19 @@ namespace System.Drawing
                 this.canvas.DrawOval(r, this.paint);
             }
         }
+
+		public void DrawEllipse(Pen pen, Rectangle rect)
+		{
+			this.paint.Color = pen.Color.ToAColor();
+			this.paint.Flags = this.Flags;
+			this.paint.SetStyle(droid.Paint.Style.Stroke);
+			this.paint.StrokeWidth = pen.Width;
+			using (droid.RectF r = new RectangleF(rect.X, rect.Y, 1, 1).ToRectF())
+			{
+				this.canvas.DrawOval(r, this.paint);
+			}
+		}
+
 
 		public void DrawCurve(Pen pen, Point[] points, Single tension)
 		{
@@ -179,6 +202,12 @@ namespace System.Drawing
 			}
 			
 			this.canvas.DrawPath(path, this.paint);
+		}
+
+
+		public void DrawPie(Pen pen, Rectangle rect, float startAngle, float sweepAngle)
+		{
+			throw new NotImplementedException();
 		}
 
         public void FillRectangle(Brush brush, float x1, float y1, float w, float h)
@@ -251,6 +280,11 @@ namespace System.Drawing
 			}
 
 			this.canvas.DrawPath(path, this.paint);
+		}
+
+		public void FillPie(Brush brush, Rectangle rect, float startAngle, float sweepAngle)
+		{
+			throw new NotImplementedException();
 		}
 
         public void DrawString(string text, Font font, Brush brush, float x, float y)
@@ -336,6 +370,24 @@ namespace System.Drawing
 			}
 		}
 
+		public SizeF MeasureString(string text, Font font, int width, StringFormat format)
+		{
+			using (var p = new droid.Paint(this.paint))
+				using (var bounds = new droid.Rect())
+					using (var fm = p.GetFontMetrics())
+			{
+				p.TextSize = width;
+				p.SetTypeface(font.FontFamily.Typeface);
+				p.SetStyle(droid.Paint.Style.Stroke);
+				
+				p.GetTextBounds(text, 0, text.Length, bounds);
+				var height = -fm.Top + fm.Bottom;
+				
+				return new SizeF(width, height).ToSize();
+			}
+		}
+
+
         public void RotateTransform(float angle)
         {
             this.canvas.Rotate(angle);
@@ -376,6 +428,34 @@ namespace System.Drawing
 		public System.IntPtr GetHdc()
 		{
 			throw new NotImplementedException();
+		}
+
+
+		public delegate bool EnumerateMetafileProc(
+			EmfPlusRecordType recordType,
+			int flags,
+			int dataSize,
+			IntPtr data,
+			Imaging.PlayRecordCallback callbackData
+			);
+
+		public GraphicsUnit PageUnit { get; set; }
+
+
+		public float DpiX 
+		{ 
+			get
+			{
+				return this.canvas.Density;
+			}
+		}
+
+		public float DpiY 
+		{ 
+			get
+			{
+				return this.canvas.Density;
+			}
 		}
 
     }

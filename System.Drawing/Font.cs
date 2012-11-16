@@ -39,6 +39,16 @@
 
 		}
 
+		public Font(FontFamily family, float emSize, FontStyle style)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Font(string familyName, float emSize, FontStyle style)
+		{
+			throw new NotImplementedException();
+		}
+
         #region IDisposable Members
 
         public void Dispose()

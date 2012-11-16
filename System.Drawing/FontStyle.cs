@@ -5,6 +5,8 @@
         Regular,
         Bold,
         Italic,
-        Normal = Regular
+        Normal = Regular,
+		Strikeout,
+		Underline
     }
 }

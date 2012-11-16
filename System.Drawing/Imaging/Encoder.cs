@@ -2,6 +2,7 @@ using System;
 
 namespace System.Drawing.Imaging
 {
+
 	public sealed class Encoder
 	{
 		public Encoder ()

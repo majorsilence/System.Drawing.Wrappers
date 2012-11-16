@@ -36,6 +36,9 @@
 			this.Width = width;
 		}
 
+
+		public Drawing2D.DashStyle DashStyle {get; set;} 
+
         #region IDisposable Members
 
         public void Dispose()

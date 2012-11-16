@@ -82,6 +82,11 @@
     <Compile Include="Drawing2D\InterpolationMode.cs" />
     <Compile Include="Drawing2D\PixelOffsetMode.cs" />
     <Compile Include="Drawing2D\CompositingQuality.cs" />
+    <Compile Include="Imaging\EmfPlusRecordType.cs" />
+    <Compile Include="Imaging\PlayRecordCallback.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="Drawing2D\DashStyle.cs" />
+    <Compile Include="StringTrimming.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

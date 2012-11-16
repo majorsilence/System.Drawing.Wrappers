@@ -19,6 +19,13 @@ namespace System.Drawing.Imaging
 			throw new NotImplementedException();
 		}
 
+
+		public Metafile(System.IO.Stream stream, System.IntPtr ptr, Drawing.RectangleF rect, MetafileFrameUnit unit)
+		{
+			
+			throw new NotImplementedException();
+		}
+		
 		/// <summary>
 		/// Saves this image to the specified stream in the specified format.
 		/// </summary>

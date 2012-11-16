@@ -15,11 +15,13 @@
             get { return new Size(Width, Height); }
         }
 
-        #region IDisposable Members
+#region IDisposable Members
 
         public void Dispose()
         {
         }
+
+#endregion
 
 
 		public void Save(System.IO.Stream stream, Imaging.ImageCodecInfo info, Imaging.EncoderParameters e)
@@ -32,6 +34,13 @@
 			throw new NotImplementedException();
 		}
 
-        #endregion
+
+		public static Image FromStream(System.IO.Stream stream)
+		{
+			throw new NotImplementedException();
+		}
+
+
+ 
     }
 }

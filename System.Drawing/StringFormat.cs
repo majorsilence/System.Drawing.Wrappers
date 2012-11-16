@@ -2,7 +2,7 @@ using System;
 
 namespace System.Drawing
 {
-	public class StringFormat
+	public class StringFormat : IDisposable
 	{
 		public StringFormat ()
 		{
@@ -20,9 +20,59 @@ namespace System.Drawing
 			throw new NotImplementedException();
 		}
 
-		public StringFormatFlags FormatFlags {get; set; }
+		public StringFormatFlags FormatFlags 
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
 
-		public StringAlignment Alignment { get; set; }
+		public StringAlignment Alignment 
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+
+		public StringAlignment LineAlignment 
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public StringTrimming Trimming
+		{
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+
+		public void Dispose()
+		{
+		}
 
 	}
 }

@@ -15,6 +15,20 @@ namespace System.Drawing.Imaging
 		public void Dispose()
 		{
 		}
+
+
+		public EncoderParameter[] Param 
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
 	}
 }
 
