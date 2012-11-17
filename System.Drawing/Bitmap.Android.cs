@@ -159,6 +159,28 @@ namespace System.Drawing
 		}
 
 
+		public Color GetPixel(int x, int y)
+		{
+			int pixel = _androidBitMap.GetPixel(x, y);
+
+			int red = Android.Graphics.Color.GetRedComponent(pixel);
+			int blue = Android.Graphics.Color.GetBlueComponent(pixel);
+			int green = Android.Graphics.Color.GetGreenComponent(pixel);
+
+			return Color.FromArgb(red, green, blue);
+
+		}
+
+		public void SetPixel(int x, int y, Color color)
+		{
+			Android.Graphics.Color c = new Android.Graphics.Color(color.R, color.G, color.B);
+
+			_androidBitMap.SetPixel(x, y, c);
+
+		}
+
+
+
 		#region IDisposable Members
 		
 		public void Dispose()
