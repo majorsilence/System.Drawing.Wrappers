@@ -40,7 +40,29 @@
 			throw new NotImplementedException();
 		}
 
+		public void Save(System.IO.Stream stream, Imaging.ImageFormat format)
+		{
+			throw new NotImplementedException();
+		}
+
+		public float HorizontalResolution 
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+		}
 
  
+		public float VerticalResolution  
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+
+
     }
 }

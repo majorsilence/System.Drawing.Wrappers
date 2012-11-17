@@ -13,6 +13,7 @@
     <AssemblyName>System.Drawing.Android</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ReleaseVersion>4.6.0</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -87,6 +88,19 @@
     <Compile Include="Region.cs" />
     <Compile Include="Drawing2D\DashStyle.cs" />
     <Compile Include="StringTrimming.cs" />
+    <Compile Include="EncoderValue.cs" />
+    <Compile Include="Drawing2D\RegionData.cs" />
+    <Compile Include="Imaging\PixelFormat.cs" />
+    <Compile Include="Imaging\BitmapData.cs" />
+    <Compile Include="Imaging\ImageLockMode.cs" />
+    <Compile Include="Drawing2D\WrapMode.cs" />
+    <Compile Include="ColorTranslator.cs" />
+    <Compile Include="Drawing2D\LineCap.cs" />
+    <Compile Include="Drawing2D\LineJoin.cs" />
+    <Compile Include="Drawing2D\DashCap.cs" />
+    <Compile Include="Drawing2D\PenAlignment.cs" />
+    <Compile Include="Text\HotkeyPrefix.cs" />
+    <Compile Include="StringDigitSubstitute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -99,5 +113,6 @@
   <ItemGroup>
     <Folder Include="Imaging\" />
     <Folder Include="Drawing2D\" />
+    <Folder Include="Text\" />
   </ItemGroup>
 </Project>

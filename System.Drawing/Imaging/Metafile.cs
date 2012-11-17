@@ -4,6 +4,12 @@ namespace System.Drawing.Imaging
 {
 	public class Metafile : Image
 	{
+
+		public Metafile(System.IO.Stream stream)
+		{
+			throw new NotImplementedException();		
+		}
+
 		/// <summary>
 		/// Initializes a new instance of the Metafile class from the 
 		/// specified data stream, a Windows handle to a device context, 

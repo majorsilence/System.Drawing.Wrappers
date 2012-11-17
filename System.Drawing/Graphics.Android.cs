@@ -79,6 +79,21 @@ namespace System.Drawing
             this.DrawImage(bitmap, new Rectangle(x, y, bitmap.Width, bitmap.Height), source, gu);
         }
 
+		public void DrawImage(Image img, Rectangle rect)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DrawImage(Image img, RectangleF rect)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DrawImageUnscaled(Image image, int x, int y)
+		{
+			throw new NotImplementedException();
+		}
+
         public void DrawLine(Pen pen, float x1, float y1, float x2, float y2)
         {
             this.paint.Color = pen.Color.ToAColor();
@@ -159,6 +174,17 @@ namespace System.Drawing
 			}
 		}
 
+		public void DrawEllipse(Pen pen, RectangleF rect)
+		{
+			this.paint.Color = pen.Color.ToAColor();
+			this.paint.Flags = this.Flags;
+			this.paint.SetStyle(droid.Paint.Style.Stroke);
+			this.paint.StrokeWidth = pen.Width;
+			using (droid.RectF r = new RectangleF(rect.X, rect.Y, 1, 1).ToRectF())
+			{
+				this.canvas.DrawOval(r, this.paint);
+			}
+		}
 
 		public void DrawCurve(Pen pen, Point[] points, Single tension)
 		{
@@ -166,6 +192,11 @@ namespace System.Drawing
 		}
 
 		public void DrawCurve(Pen pen, PointF[] point, Single tension)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DrawCurve(Pen pen, PointF[] points, int offset, int numberOfSegments, float tension)
 		{
 			throw new NotImplementedException();
 		}
@@ -206,6 +237,11 @@ namespace System.Drawing
 
 
 		public void DrawPie(Pen pen, Rectangle rect, float startAngle, float sweepAngle)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DrawPie(Pen pen, RectangleF rect, float startAngle, float sweepAngle)
 		{
 			throw new NotImplementedException();
 		}
@@ -287,6 +323,16 @@ namespace System.Drawing
 			throw new NotImplementedException();
 		}
 
+		public void FillPie(Brush brush, int x, int y, int width, int height, int startAngle, int sweepAngle)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void FillPie(Brush brush, float x, float y, float width, float height, float startAngle, float sweepAngle)
+		{
+			throw new NotImplementedException();
+		}
+
         public void DrawString(string text, Font font, Brush brush, float x, float y)
         {
             this.paint.Color = brush.Color.ToAColor();
@@ -329,6 +375,11 @@ namespace System.Drawing
 				this.canvas.DrawText(text, rect.Location.X, rect.Location.Y - (fm.Top + fm.Bottom), this.paint);
 			}
 
+		}
+
+		public void DrawString(string s, Font font, Brush brush, PointF layoutRectangle, StringFormat format)
+		{
+			throw new NotImplementedException();
 		}
 
 
@@ -432,7 +483,7 @@ namespace System.Drawing
 
 
 		public delegate bool EnumerateMetafileProc(
-			EmfPlusRecordType recordType,
+			Imaging.EmfPlusRecordType recordType,
 			int flags,
 			int dataSize,
 			IntPtr data,
@@ -456,6 +507,54 @@ namespace System.Drawing
 			{
 				return this.canvas.Density;
 			}
+		}
+
+
+
+		public Region[] MeasureCharacterRanges(string text, Font font, RectangleF layoutRect, StringFormat stringFormat)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public void ScaleTransform(float sx, float sy)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Region Clip 
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public Drawing2D.Matrix Transform 
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public void ResetTransform()
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public void EnumerateMetafile(Imaging.Metafile metafile, Point destPoint, Graphics.EnumerateMetafileProc callback)
+		{
+			throw new NotImplementedException();
 		}
 
     }

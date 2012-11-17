@@ -49,6 +49,33 @@
 			throw new NotImplementedException();
 		}
 
+		public Font(string familyName, float emSize, FontStyle style, GraphicsUnit unit)
+		{
+			throw new NotImplementedException();
+		}
+
+		public bool Italic { 
+			get
+			{
+				return this.Style == FontStyle.Italic;
+			}
+		}
+
+		public bool Bold { 
+			get
+			{
+				return this.Style == FontStyle.Bold;
+			}
+		}
+
+		public bool Underline  { 
+			get
+			{
+				return this.Style == FontStyle.Underline;
+			}
+		}
+
+
         #region IDisposable Members
 
         public void Dispose()

@@ -69,6 +69,35 @@ namespace System.Drawing
 			}
 		}
 
+		public void SetMeasurableCharacterRanges(CharacterRange[] ranges)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public void SetTabStops(float firstTabOffset, float[] tabStops)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public Text.HotkeyPrefix HotkeyPrefix 
+		{ 
+			get
+			{
+				throw new NotImplementedException();  
+			}
+			set
+			{
+				throw new NotImplementedException(); 
+			}
+		}
+
+		public void SetDigitSubstitution(int language, StringDigitSubstitute substitute)
+		{
+			throw new NotImplementedException();
+		}
+
 
 		public void Dispose()
 		{

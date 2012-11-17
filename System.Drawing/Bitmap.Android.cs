@@ -67,6 +67,13 @@ namespace System.Drawing
 			throw new NotImplementedException();
 		}
 
+
+		public Bitmap(int width, int height, Imaging.PixelFormat format)
+		{
+			throw new NotImplementedException();
+		}
+
+
 		private Android.Graphics.Bitmap _androidBitMap;
 		public Android.Graphics.Bitmap AndroidBitmap 
 		{
@@ -106,6 +113,51 @@ namespace System.Drawing
 				return new System.Drawing.Size(_androidBitMap.Width, _androidBitMap.Height);
 			}
 		}
+
+
+		public void SaveAdd(Image image, Imaging.EncoderParameters encoderParams)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SaveAdd(Imaging.EncoderParameters encoderParams)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public void MakeTransparent(Color transparentColor)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		public void SetResolution(float xDpi, float yDpi)
+		{
+			throw new NotImplementedException();
+		}
+
+
+		private Imaging.PixelFormat _pixelformat;
+		public Imaging.PixelFormat PixelFormat 
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+				return _pixelformat;
+			}
+		}
+		
+		public Imaging.BitmapData LockBits(Rectangle rect, Imaging.ImageLockMode flags, Imaging.PixelFormat format)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UnlockBits(Imaging.BitmapData bitmapdata)
+		{
+			throw new NotImplementedException();
+		}
+
 
 		#region IDisposable Members
 		

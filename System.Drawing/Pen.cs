@@ -37,7 +37,131 @@
 		}
 
 
-		public Drawing2D.DashStyle DashStyle {get; set;} 
+		public Drawing2D.DashStyle DashStyle
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public Drawing2D.LineCap StartCap
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public Drawing2D.LineCap EndCap 
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public Drawing2D.LineJoin LineJoin
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public float MiterLimit
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+
+		public Drawing2D.DashCap DashCap
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+		public float DashOffset
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+
+		public float[] DashPattern
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+
+		public Drawing2D.PenAlignment Alignment
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+
+		public float[] CompoundArray
+		{ 
+			get
+			{
+				throw new NotImplementedException();
+			}
+			set
+			{
+				throw new NotImplementedException();
+			}
+		}
+
+
 
         #region IDisposable Members
 
